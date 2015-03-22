@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteRule panel.xtc$ main.php
+DirectoryIndex index.php
