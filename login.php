@@ -24,7 +24,7 @@ if ($r){
 	if (count($tmp) == 2)
 	$c = $conn->Prepare("UPDATE `misery4crackers` SET `lastlogin` = ?, `attempts` = ? + 1 WHERE `ip` = ? OR `cookie` = ?");
 else
-	$c = $conn->Prepare("UPDATE `misery4crackers` SET `lastlogin` = ?, `attempts` = ? WHERE `ip` = ? OR `cookie` = ?");
+	$c = $conn->Prepare("UPDATE `misery4crackers` SET `lastlogin` = ?, `attempts` = ? WHERE `ip` = ?");
 	$c->Execute(array_merge(Array(time(), 1 + $r['attempts']), $tmp));
 }
 else{
@@ -159,7 +159,7 @@ $('#login').on('submit', function(e){
 				break;
 				case '3':
 				toastr.success('You have been logged in.', 'Success!');
-				setTimeout(function(){window.location="panel.xtc"}, 1000);
+				setTimeout(function(){window.location="panel.xtc"}, 2000);
 				break;
 				case '4':
 				toastr.error('You have used up the maximum login attempts allowed.', 'Wait 30 minutes.');
